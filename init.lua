@@ -58,14 +58,9 @@ require('plugins/config/goto-preview-setup')
 
 -- document existing key chains
 require('which-key').register {
-  ['<leader>c'] = { name = 'Code', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = 'Document', _ = 'which_key_ignore' },
-  -- ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  -- ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = 'Rename', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = 'Toggle', _ = 'which_key_ignore' },
-  -- ['<leader>w'] = { name = 'Workspace', _ = 'which_key_ignore' },
+  ['<leader>l'] = { name = 'LSP', _ = 'which_key_ignore' },
   ['<leader>v'] = { name = 'Version Control', _ = 'which_key_ignore' },
   ['<leader>S'] = { name = 'Session', _ = 'which_key_ignore' },
 }
