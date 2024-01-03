@@ -248,9 +248,15 @@ require('lazy').setup({
         'nvim-telescope/telescope.nvim',
         'nvim-lua/plenary.nvim'
     },
-    -- config = function()
-    --     require('telescope').load_extension('lazygit')
-    -- end,
+    config = function()
+      -- require('telescope').load_extension('lazygit')
+      vim.keymap.set(
+        'n',
+        '<leader>vl',
+        '<cmd>LazyGit<CR>',
+        { desc = 'open lazygit' }
+      )
+    end,
   },
   {
     'echasnovski/mini.surround',
