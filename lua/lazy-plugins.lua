@@ -297,8 +297,13 @@ require('lazy').setup({
       )
     end,
   },
+  {
+    "cappyzawa/trim.nvim",
+    opts = {}
+  },
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
-  { 'rebelot/kanagawa.nvim' }
+  { 'rebelot/kanagawa.nvim' },
+  { 'famiu/bufdelete.nvim' }
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
