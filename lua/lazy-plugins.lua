@@ -252,6 +252,8 @@ require('lazy').setup({
       --     require("telescope").load_extension("lazygit")
       -- end,
   },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "rebelot/kanagawa.nvim" }
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.

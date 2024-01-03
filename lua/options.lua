@@ -42,3 +42,7 @@ vim.o.termguicolors = true
 
 vim.o.wrap = false
 vim.o.cursorline = true
+
+
+vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme('kanagawa')
