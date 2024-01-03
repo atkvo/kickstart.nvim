@@ -60,25 +60,25 @@ require('lazy').setup({
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+      -- '3rd/image.nvim', -- Optional image support in preview window: See `# Preview Mode` for more information
     }
   },
 
   -- {
-  --   "nvim-tree/nvim-tree.lua",
-  --   version = "*",
+  --   'nvim-tree/nvim-tree.lua',
+  --   version = '*',
   --   lazy = false,
   --   dependencies = {
-  --     "nvim-tree/nvim-web-devicons",
+  --     'nvim-tree/nvim-web-devicons',
   --   },
   --   config = function()
-  --     require("nvim-tree").setup {}
+  --     require('nvim-tree').setup {}
   --   end,
   -- },
   {
@@ -223,17 +223,17 @@ require('lazy').setup({
   -- {
   --   'simrat39/symbols-outline.nvim',
   --   config = function()
-  --     require("symbols-outline").setup()
+  --     require('symbols-outline').setup()
   --   end,
   -- },
   {
-    "hedyhli/outline.nvim",
+    'hedyhli/outline.nvim',
     config = function()
       -- Example mapping to toggle outline
-      vim.keymap.set("n", "<leader>lo", "<cmd>Outline<CR>",
-        { desc = "Toggle Outline" })
+      vim.keymap.set('n', '<leader>lo', '<cmd>Outline<CR>',
+        { desc = 'Toggle Outline' })
 
-      require("outline").setup {
+      require('outline').setup {
         -- Your setup opts here (leave empty to use defaults)
       }
     end,
@@ -242,18 +242,25 @@ require('lazy').setup({
     'rmagatti/goto-preview',
   },
   {
-      "kdheepak/lazygit.nvim",
-      -- optional for floating window border decoration
-      dependencies = {
-          "nvim-telescope/telescope.nvim",
-          "nvim-lua/plenary.nvim"
-      },
-      -- config = function()
-      --     require("telescope").load_extension("lazygit")
-      -- end,
+    'kdheepak/lazygit.nvim',
+    -- optional for floating window border decoration
+    dependencies = {
+        'nvim-telescope/telescope.nvim',
+        'nvim-lua/plenary.nvim'
+    },
+    -- config = function()
+    --     require('telescope').load_extension('lazygit')
+    -- end,
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  { "rebelot/kanagawa.nvim" }
+  {
+    'echasnovski/mini.surround',
+    version = '*',
+    config = function()
+      require('mini.surround').setup()
+    end
+  },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  { 'rebelot/kanagawa.nvim' }
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
