@@ -67,6 +67,7 @@ require('which-key').register {
   ['<leader>t'] = { name = 'Toggle', _ = 'which_key_ignore' },
   -- ['<leader>w'] = { name = 'Workspace', _ = 'which_key_ignore' },
   ['<leader>v'] = { name = 'Version Control', _ = 'which_key_ignore' },
+  ['<leader>S'] = { name = 'Session', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work

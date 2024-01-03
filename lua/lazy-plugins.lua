@@ -259,6 +259,44 @@ require('lazy').setup({
       require('mini.surround').setup()
     end
   },
+  {
+    'gennaro-tedesco/nvim-possession',
+    dependencies = {
+        'ibhagwan/fzf-lua',
+    },
+    config = true,
+    init = function()
+      local possession = require('nvim-possession')
+
+      possession.setup( { autoload = true } )
+
+      vim.keymap.set(
+        'n', '<leader>Sl',
+        possession.list,
+        { desc = 'List sessions' }
+      )
+
+      vim.keymap.set(
+        'n', '<leader>Sn',
+        possession.new,
+        { desc = 'New sessions' }
+      )
+
+      vim.keymap.set(
+        'n', '<leader>Su',
+        possession.update,
+        { desc = 'Update session' }
+      )
+
+      vim.keymap.set(
+        'n', '<leader>Sd',
+        possession.delete,
+        {
+          desc = 'Delete session'
+        }
+      )
+    end,
+  },
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   { 'rebelot/kanagawa.nvim' }
 
