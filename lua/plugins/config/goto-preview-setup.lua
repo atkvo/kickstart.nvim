@@ -3,5 +3,4 @@ api.setup()
 require('goto-preview').setup {}
 
 vim.keymap.set('n', '<leader>ld', api.goto_preview_definition, { desc = 'Preview definitions' })
-vim.keymap.set('n', '<leader>lR', api.goto_preview_references, { desc = 'Preview references' })
-
+vim.keymap.set('n', '<leader>lr', api.goto_preview_references, { desc = 'Preview references' })
