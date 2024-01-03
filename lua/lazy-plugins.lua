@@ -302,6 +302,7 @@ require('lazy').setup({
     opts = {}
   },
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  { 'simeji/winresizer' },
   { 'rebelot/kanagawa.nvim' },
   { 'famiu/bufdelete.nvim' }
 
