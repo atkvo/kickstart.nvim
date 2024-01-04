@@ -55,6 +55,7 @@ require('plugins/config/telescope-setup')
 require('plugins/config/treesitter-setup')
 require('plugins/config/lsp-setup')
 require('plugins/config/goto-preview-setup')
+require('plugins/config/neo-tree-setup')
 
 -- document existing key chains
 require('which-key').register {
