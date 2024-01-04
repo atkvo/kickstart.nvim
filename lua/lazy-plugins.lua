@@ -69,7 +69,6 @@ require('lazy').setup({
       -- '3rd/image.nvim', -- Optional image support in preview window: See `# Preview Mode` for more information
     }
   },
-
   -- {
   --   'nvim-tree/nvim-tree.lua',
   --   version = '*',
@@ -310,6 +309,10 @@ require('lazy').setup({
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   { 'simeji/winresizer' },
   { 'rebelot/kanagawa.nvim' },
+  {
+    "mcchrish/zenbones.nvim",
+    dependencies = { "rktjmp/lush.nvim" }
+  },
   { 'famiu/bufdelete.nvim' }
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
