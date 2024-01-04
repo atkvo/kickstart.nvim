@@ -43,6 +43,9 @@ vim.o.termguicolors = true
 vim.o.wrap = false
 vim.o.cursorline = true
 
+vim.o.list = true
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
 
 -- vim.cmd.colorscheme('catppuccin')
 vim.cmd.colorscheme('kanagawa')
