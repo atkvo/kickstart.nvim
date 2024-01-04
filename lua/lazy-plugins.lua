@@ -6,7 +6,6 @@
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
-
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -39,7 +38,6 @@ require('lazy').setup({
     },
     lazy = false,
   },
-
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -171,7 +169,8 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        -- theme = 'onedark',
+        theme = 'horizon',
         component_separators = '|',
         section_separators = '',
       },
@@ -313,7 +312,20 @@ require('lazy').setup({
     "mcchrish/zenbones.nvim",
     dependencies = { "rktjmp/lush.nvim" }
   },
-  { 'famiu/bufdelete.nvim' }
+  { 'famiu/bufdelete.nvim' },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "sindrets/diffview.nvim",        -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+      "ibhagwan/fzf-lua",              -- optional
+    },
+    config = true
+  }
+
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
