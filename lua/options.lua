@@ -8,6 +8,7 @@ vim.o.incsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
+vim.o.number = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -48,4 +49,7 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
 -- vim.cmd.colorscheme('catppuccin')
-vim.cmd.colorscheme('kanagawa')
+vim.cmd.colorscheme('nightfly')
+
+vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
+vim.o.showtabline = 2

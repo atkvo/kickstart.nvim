@@ -154,15 +154,6 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
-
-  {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
@@ -305,13 +296,23 @@ require('lazy').setup({
     "cappyzawa/trim.nvim",
     opts = {}
   },
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   { 'simeji/winresizer' },
+
+  -- themes
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   { 'rebelot/kanagawa.nvim' },
+  { 'bluz71/vim-nightfly-colors', name = 'nightfly', lazy = false, priority = 1000 },
+  { 'bluz71/vim-moonfly-colors', name = 'moonfly', lazy = false, priority = 1000 },
+  { 'sainnhe/everforest', lazy = false, priority = 1000 },
   {
     "mcchrish/zenbones.nvim",
     dependencies = { "rktjmp/lush.nvim" }
   },
+  {
+    'navarasu/onedark.nvim', priority = 1000
+  },
+  { 'rose-pine/neovim', name = 'rose-pine' },
+
   { 'famiu/bufdelete.nvim' },
   {
     "NeogitOrg/neogit",
@@ -324,6 +325,14 @@ require('lazy').setup({
       "ibhagwan/fzf-lua",              -- optional
     },
     config = true
+  },
+  {
+    'nanozuki/tabby.nvim',
+    event = 'VimEnter',
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require('tabby.tabline').use_preset('tab_only')
+    end
   }
 
 
