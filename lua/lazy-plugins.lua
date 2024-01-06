@@ -296,6 +296,7 @@ require('lazy').setup({
   { 'bluz71/vim-nightfly-colors', name = 'nightfly', lazy = false, priority = 1000 },
   { 'bluz71/vim-moonfly-colors', name = 'moonfly', lazy = false, priority = 1000 },
   { 'sainnhe/everforest', lazy = false, priority = 1000 },
+  { 'shaunsingh/moonlight.nvim' },
   {
     "mcchrish/zenbones.nvim",
     dependencies = { "rktjmp/lush.nvim" }

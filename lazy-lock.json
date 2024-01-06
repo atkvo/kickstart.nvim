@@ -23,6 +23,7 @@
   "mason.nvim": { "branch": "main", "commit": "a09da6ac634926a299dd439da08bdb547a8ca011" },
   "mini.surround": { "branch": "main", "commit": "af8129efcabe95fc08a233e9f91569829bed031f" },
   "moonfly": { "branch": "master", "commit": "4da1ee42648df987cd97818e47487a3f214bea9d" },
+  "moonlight.nvim": { "branch": "pure-lua", "commit": "e24e4218ec680b6396532808abf57ca0ada82e66" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "77d9f484b88fd380386b46ed9206e5374d69d9d8" },
   "neodev.nvim": { "branch": "main", "commit": "2a8630847dbb93455936156c0689678e4eaee319" },
   "neogit": { "branch": "master", "commit": "93bf00cd5db1e88ea0ca9105e83f7e97896a7cd2" },
