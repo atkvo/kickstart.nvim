@@ -104,4 +104,6 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
-require('lspconfig').clangd.setup{}
+require('lspconfig').clangd.setup{
+  on_attach = on_attach
+}
