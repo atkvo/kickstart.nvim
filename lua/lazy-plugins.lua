@@ -291,11 +291,12 @@ require('lazy').setup({
   { 'simeji/winresizer' },
 
   -- themes
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  { 'catppuccin/nvim',            name = 'catppuccin', priority = 1000 },
+  { 'samharju/synthweave.nvim',   priority = 1000 },
   { 'rebelot/kanagawa.nvim' },
-  { 'bluz71/vim-nightfly-colors', name = 'nightfly', lazy = false, priority = 1000 },
-  { 'bluz71/vim-moonfly-colors', name = 'moonfly', lazy = false, priority = 1000 },
-  { 'sainnhe/everforest', lazy = false, priority = 1000 },
+  { 'bluz71/vim-nightfly-colors', name = 'nightfly',   lazy = false,   priority = 1000 },
+  { 'bluz71/vim-moonfly-colors',  name = 'moonfly',    lazy = false,   priority = 1000 },
+  { 'sainnhe/everforest',         lazy = false,        priority = 1000 },
   { 'shaunsingh/moonlight.nvim' },
   {
     "mcchrish/zenbones.nvim",
@@ -304,7 +305,13 @@ require('lazy').setup({
   {
     'navarasu/onedark.nvim', priority = 1000
   },
-  { 'rose-pine/neovim', name = 'rose-pine' },
+  { 'rose-pine/neovim',    name = 'rose-pine' },
+  {
+    "eldritch-theme/eldritch.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 
   { 'famiu/bufdelete.nvim' },
   {
