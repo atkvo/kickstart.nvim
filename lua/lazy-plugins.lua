@@ -25,7 +25,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -34,7 +34,7 @@ require('lazy').setup({
   {
     'numToStr/Comment.nvim',
     opts = {
-        -- add any options here
+      -- add any options here
     },
     lazy = false,
   },
@@ -56,7 +56,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
@@ -226,8 +226,8 @@ require('lazy').setup({
     'kdheepak/lazygit.nvim',
     -- optional for floating window border decoration
     dependencies = {
-        'nvim-telescope/telescope.nvim',
-        'nvim-lua/plenary.nvim'
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim'
     },
     config = function()
       -- require('telescope').load_extension('lazygit')
@@ -249,13 +249,13 @@ require('lazy').setup({
   {
     'gennaro-tedesco/nvim-possession',
     dependencies = {
-        'ibhagwan/fzf-lua',
+      'ibhagwan/fzf-lua',
     },
     config = true,
     init = function()
       local possession = require('nvim-possession')
 
-      possession.setup( { autoload = true } )
+      possession.setup({ autoload = true })
 
       vim.keymap.set(
         'n', '<leader>Sl',
@@ -317,8 +317,8 @@ require('lazy').setup({
   {
     "NeogitOrg/neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
+      "nvim-lua/plenary.nvim",  -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
 
       -- Only one of these is needed, not both.
       "nvim-telescope/telescope.nvim", -- optional
