@@ -317,7 +317,9 @@ require('lazy').setup({
     end
   },
   {
-    'echasnovski/mini.jump2d', version = '*',
+    'echasnovski/mini.jump2d',
+    version = '*',
+  },
     config = function()
       require('mini.jump2d').setup()
     end,
