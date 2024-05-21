@@ -121,26 +121,26 @@ require('lazy').setup({
           gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
         end, { desc = 'reset git hunk' })
         -- normal mode
-        map('n', '<leader>vs', gs.stage_hunk, { desc = 'git stage hunk' })
-        map('n', '<leader>vr', gs.reset_hunk, { desc = 'git reset hunk' })
-        map('n', '<leader>vS', gs.stage_buffer, { desc = 'git Stage buffer' })
-        map('n', '<leader>vu', gs.undo_stage_hunk, { desc = 'undo stage hunk' })
-        map('n', '<leader>vR', gs.reset_buffer, { desc = 'git Reset buffer' })
-        map('n', '<leader>vp', gs.preview_hunk, { desc = 'preview git hunk' })
+        map('n', '<leader>vs', gs.stage_hunk, { desc = 'Git stage hunk' })
+        map('n', '<leader>vr', gs.reset_hunk, { desc = 'Git reset hunk' })
+        map('n', '<leader>vS', gs.stage_buffer, { desc = 'Git Stage buffer' })
+        map('n', '<leader>vu', gs.undo_stage_hunk, { desc = 'Undo stage hunk' })
+        map('n', '<leader>vR', gs.reset_buffer, { desc = 'Git Reset buffer' })
+        map('n', '<leader>vp', gs.preview_hunk, { desc = 'Preview git hunk' })
         map('n', '<leader>vb', function()
           gs.blame_line { full = false }
-        end, { desc = 'git blame line' })
-        map('n', '<leader>vd', gs.diffthis, { desc = 'git diff against index' })
+        end, { desc = 'Git blame line' })
+        map('n', '<leader>vd', gs.diffthis, { desc = 'Git diff against index' })
         map('n', '<leader>vD', function()
           gs.diffthis '~'
-        end, { desc = 'git diff against last commit' })
+        end, { desc = 'Uit diff against last commit' })
 
         -- Toggles
-        map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
-        map('n', '<leader>td', gs.toggle_deleted, { desc = 'toggle git show deleted' })
+        map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'Toggle git blame line' })
+        map('n', '<leader>td', gs.toggle_deleted, { desc = 'Toggle git show deleted' })
 
         -- Text object
-        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
+        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'Select git hunk' })
       end,
     },
   },
@@ -211,8 +211,6 @@ require('lazy').setup({
     'hedyhli/outline.nvim',
     config = function()
       -- Example mapping to toggle outline
-      vim.keymap.set('n', '<leader>lo', '<cmd>Outline<CR>',
-        { desc = 'Toggle Outline' })
 
       require('outline').setup {
         -- Your setup opts here (leave empty to use defaults)
