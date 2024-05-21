@@ -32,13 +32,6 @@ require('lazy').setup({
     },
   },
   {
-    'numToStr/Comment.nvim',
-    opts = {
-      -- add any options here
-    },
-    lazy = false,
-  },
-  {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
@@ -227,15 +220,6 @@ require('lazy').setup({
       'nvim-telescope/telescope.nvim',
       'nvim-lua/plenary.nvim'
     },
-    config = function()
-      -- require('telescope').load_extension('lazygit')
-      vim.keymap.set(
-        'n',
-        '<leader>vl',
-        '<cmd>LazyGit<CR>',
-        { desc = 'open lazygit' }
-      )
-    end,
   },
   {
     'echasnovski/mini.surround',
