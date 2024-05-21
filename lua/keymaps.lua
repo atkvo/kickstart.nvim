@@ -99,3 +99,4 @@ vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Doc
   -- vim.keymap.set('<leader>wl', function()
   --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   -- end, '[W]orkspace [L]ist Folders')
+vim.keymap.set('n', 'gw', require('mini.jump2d').start, { desc = 'Jump to spot' })

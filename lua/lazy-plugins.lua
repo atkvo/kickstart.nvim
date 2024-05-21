@@ -333,7 +333,13 @@ require('lazy').setup({
     config = function()
       require('tabby.tabline').use_preset('tab_only')
     end
-  }
+  },
+  {
+    'echasnovski/mini.jump2d', version = '*',
+    config = function()
+      require('mini.jump2d').setup()
+    end,
+  },
 
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
