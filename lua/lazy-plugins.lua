@@ -297,6 +297,25 @@ require('lazy').setup({
     priority = 1000,
     opts = {},
   },
+  {
+    'maxmx03/fluoromachine.nvim',
+    config = function()
+      local fm = require 'fluoromachine'
+
+      fm.setup {
+        glow = false,
+        -- theme = 'fluoromachine'
+        theme = 'delta'
+        -- theme = 'retrowave'
+      }
+    end
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 
   { 'famiu/bufdelete.nvim' },
   {
