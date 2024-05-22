@@ -82,6 +82,8 @@ vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = 
 vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, { desc = 'Goto implementation' })
 vim.keymap.set('n', 'gw', require('mini.jump2d').start, { desc = 'Goto spot' })
 
+vim.keymap.set('n', '<leader>u', require('telescope').extensions.undo.undo, { desc = 'Undo tree' })
+
 -- See `:help K` for why this keymap
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover documentation' })
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature documentation' })
