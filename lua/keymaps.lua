@@ -15,7 +15,6 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
--- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- Terminal keymaps
@@ -42,9 +41,6 @@ vim.keymap.set('n', '<leader>tl', toggle_list_char, { desc = 'Toggle list char' 
 vim.keymap.set('n', '<leader>to', '<cmd>Outline<CR>', { desc = 'Toggle outline' })
 
 -- Telescope keybinds
--- See `:help telescope.builtin`
--- vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
--- vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -60,10 +56,8 @@ local function telescope_live_grep_open_files()
   }
 end
 
-
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = 'Search in open files' })
 vim.keymap.set('n', '<leader>s?', require('telescope.builtin').builtin, { desc = 'Search select telescope' })
--- vim.keymap.set('n', '<leader>sg', require('telescope.builtin').git_files, { desc = 'Search [G]it files' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = 'Search files' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = 'Search help' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = 'Search current word' })
@@ -71,7 +65,6 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = 'Search by grep on git root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 'Search resume' })
--- vim.keymap.set('n', '<leader>s?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_document_symbols, { desc = 'Search symbols' })
 vim.keymap.set('n', '<leader>sS', require('telescope.builtin').lsp_dynamic_workspace_symbols,
@@ -87,19 +80,8 @@ vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'Code action
 vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = 'Goto definition' })
 vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = 'Goto references' })
 vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, { desc = 'Goto implementation' })
-vim.keymap.set('n', 'gw', require('mini.jump2d').start, { desc = 'Jump to spot' })
--- vim.keymap.set('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
--- vim.keymap.set('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
--- vim.keymap.set('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+vim.keymap.set('n', 'gw', require('mini.jump2d').start, { desc = 'Goto spot' })
 
 -- See `:help K` for why this keymap
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover documentation' })
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature documentation' })
-
--- Lesser used LSP functionality
--- vim.keymap.set('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
--- vim.keymap.set('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
--- vim.keymap.set('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
--- vim.keymap.set('<leader>wl', function()
---   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
--- end, '[W]orkspace [L]ist Folders')
