@@ -274,49 +274,6 @@ require('lazy').setup({
     opts = {}
   },
   { 'simeji/winresizer' },
-
-  -- themes
-  { 'catppuccin/nvim',            name = 'catppuccin', priority = 1000 },
-  { 'samharju/synthweave.nvim',   priority = 1000 },
-  { 'rebelot/kanagawa.nvim' },
-  { 'bluz71/vim-nightfly-colors', name = 'nightfly',   lazy = false,   priority = 1000 },
-  { 'bluz71/vim-moonfly-colors',  name = 'moonfly',    lazy = false,   priority = 1000 },
-  { 'sainnhe/everforest',         lazy = false,        priority = 1000 },
-  { 'shaunsingh/moonlight.nvim' },
-  {
-    "mcchrish/zenbones.nvim",
-    dependencies = { "rktjmp/lush.nvim" }
-  },
-  {
-    'navarasu/onedark.nvim', priority = 1000
-  },
-  { 'rose-pine/neovim',    name = 'rose-pine' },
-  {
-    "eldritch-theme/eldritch.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-  {
-    'maxmx03/fluoromachine.nvim',
-    config = function()
-      local fm = require 'fluoromachine'
-
-      fm.setup {
-        glow = false,
-        -- theme = 'fluoromachine'
-        theme = 'delta'
-        -- theme = 'retrowave'
-      }
-    end
-  },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-
   { 'famiu/bufdelete.nvim' },
   {
     "NeogitOrg/neogit",
@@ -349,19 +306,5 @@ require('lazy').setup({
       require('mini.cursorword').setup()
     end
   },
-
-
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'plugins' },
 }, {})
