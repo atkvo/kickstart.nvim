@@ -342,9 +342,12 @@ require('lazy').setup({
     'echasnovski/mini.jump2d',
     version = '*',
   },
+  {
+    'echasnovski/mini.cursorword',
+    version = '*',
     config = function()
-      require('mini.jump2d').setup()
-    end,
+      require('mini.cursorword').setup()
+    end
   },
 
 
