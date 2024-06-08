@@ -52,7 +52,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
@@ -155,18 +155,6 @@ require('lazy').setup({
     },
   },
 
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
-  },
-
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -197,12 +185,6 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-  -- {
-  --   'simrat39/symbols-outline.nvim',
-  --   config = function()
-  --     require('symbols-outline').setup()
-  --   end,
-  -- },
   {
     'hedyhli/outline.nvim',
     config = function()
