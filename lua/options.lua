@@ -52,8 +52,8 @@ vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 
 -- vim.cmd.colorscheme('catppuccin-mocha')
-vim.cmd.colorscheme('fluoromachine')
--- vim.cmd.colorscheme('nightfly')
+-- vim.cmd.colorscheme('fluoromachine')
+vim.cmd.colorscheme('rose-pine')
 
 vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
-vim.o.showtabline = 2
+-- vim.o.showtabline = 2
