@@ -32,6 +32,7 @@ require('lazy').setup({
     version = '*',
     config = function()
       require('mini.notify').setup()
+      vim.notify = require('mini.notify').make_notify()
     end
   },
   {
@@ -154,7 +155,6 @@ require('lazy').setup({
       },
     },
   },
-
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -199,11 +199,9 @@ require('lazy').setup({
     'rmagatti/goto-preview',
   },
   {
-    'kdheepak/lazygit.nvim',
-    -- optional for floating window border decoration
+    'kenn7/vim-arsync',
     dependencies = {
-      'nvim-telescope/telescope.nvim',
-      'nvim-lua/plenary.nvim'
+      'prabirshrestha/async.vim',
     },
   },
   {
@@ -252,6 +250,13 @@ require('lazy').setup({
     end,
   },
   {
+    'jedrzejboczar/possession.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    init = function()
+      require('possession').setup {}
+    end
+  },
+  {
     "cappyzawa/trim.nvim",
     opts = {}
   },
@@ -270,6 +275,12 @@ require('lazy').setup({
     config = true
   },
   {
+    "FabijanZulj/blame.nvim",
+    config = function()
+      require("blame").setup()
+    end
+  },
+  {
     'nanozuki/tabby.nvim',
     event = 'VimEnter',
     dependencies = 'nvim-tree/nvim-web-devicons',
@@ -277,9 +288,17 @@ require('lazy').setup({
       require('tabby.tabline').use_preset('tab_only')
     end
   },
+  { 'echasnovski/mini.jump2d', version = '*' },
   {
-    'echasnovski/mini.jump2d',
+    'echasnovski/mini.pick',
     version = '*',
+    dependencies = {
+      'echasnovski/mini.extra'
+    },
+    config = function()
+      require('mini.pick').setup()
+      require('mini.extra').setup()
+    end
   },
   {
     'echasnovski/mini.cursorword',
@@ -287,6 +306,26 @@ require('lazy').setup({
     config = function()
       require('mini.cursorword').setup()
     end
+  },
+  {
+    'MagicDuck/grug-far.nvim',
+    config = function()
+      require('grug-far').setup();
+    end
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    }
   },
   { import = 'plugins' },
 }, {})

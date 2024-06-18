@@ -40,50 +40,17 @@ end
 vim.keymap.set('n', '<leader>tl', toggle_list_char, { desc = 'Toggle list char' })
 vim.keymap.set('n', '<leader>to', '<cmd>Outline<CR>', { desc = 'Toggle outline' })
 
--- Telescope keybinds
-vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = 'Fuzzily search in current buffer' })
-
-local function telescope_live_grep_open_files()
-  require('telescope.builtin').live_grep {
-    grep_open_files = true,
-    prompt_title = 'Live grep in open files',
-  }
-end
-
-vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = 'Search in open files' })
-vim.keymap.set('n', '<leader>s?', require('telescope.builtin').builtin, { desc = 'Search select telescope' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = 'Search files' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = 'Search help' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = 'Search current word' })
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = 'Search by grep' })
-vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = 'Search by grep on git root' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics' })
-vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 'Search resume' })
-vim.keymap.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
-vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_document_symbols, { desc = 'Search symbols' })
-vim.keymap.set('n', '<leader>sS', require('telescope.builtin').lsp_dynamic_workspace_symbols,
-  { desc = 'Search workspace symbols' })
-vim.keymap.set('n', '<leader>sj', require('telescope.builtin').jumplist, { desc = 'Search jumplists' })
-
-vim.keymap.set('n', '<leader>ld', require('goto-preview').goto_preview_definition, { desc = 'Preview definitions' })
-vim.keymap.set('n', '<leader>lr', require('goto-preview').goto_preview_references, { desc = 'Preview references' })
-
 vim.keymap.set('n', '<leader>lR', vim.lsp.buf.rename, { desc = 'Rename' })
 vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'Code action' })
 
-vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = 'Goto definition' })
-vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = 'Goto references' })
-vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, { desc = 'Goto implementation' })
-vim.keymap.set('n', 'gw', require('mini.jump2d').start, { desc = 'Goto spot' })
-
-vim.keymap.set('n', '<leader>u', require('telescope').extensions.undo.undo, { desc = 'Undo tree' })
+vim.keymap.set('n', '<leader>Su', ':PosessionSave<cr>', { desc = 'Session update' })
+vim.keymap.set('n', '<leader>Sd', require('possession').delete, { desc = 'Session delete' })
 
 -- See `:help K` for why this keymap
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover documentation' })
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature documentation' })
+vim.keymap.set('n', '<leader>ld', require('goto-preview').goto_preview_definition, { desc = 'Preview definitions' })
+vim.keymap.set('n', '<leader>lr', require('goto-preview').goto_preview_references, { desc = 'Preview references' })
+
+local fuzzy_keymaps = require('keymaps-fuzzy-picker')
+fuzzy_keymaps.configure_picker(fuzzy_keymaps.supported_pickers.fzflua)
