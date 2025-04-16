@@ -12,6 +12,42 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
+  },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      animate = { enabled = true },
+      bigfile = { enabled = true },
+      dashboard = { enabled = true },
+      explorer = { enabled = true },
+      indent = { enabled = true },
+      input = { enabled = true },
+      picker = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      scroll = { enabled = false },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+    },
+  },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -26,14 +62,6 @@ require('lazy').setup({
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
-  },
-  {
-    'echasnovski/mini.notify',
-    version = '*',
-    config = function()
-      require('mini.notify').setup()
-      vim.notify = require('mini.notify').make_notify()
-    end
   },
   {
     -- Autocompletion
@@ -208,7 +236,20 @@ require('lazy').setup({
     'echasnovski/mini.surround',
     version = '*',
     config = function()
-      require('mini.surround').setup()
+      require('mini.surround').setup{
+        mappings = {
+          add = '<leader>msa',       -- Add surrounding in Normal and Visual modes
+          delete = '<leader>msd',    -- Delete surrounding
+          find = '<leader>msf',      -- Find surrounding (to the right)
+          find_left = '<leader>msF', -- Find surrounding (to the left)
+          highlight = '<leader>msh', -- Highlight surrounding
+          replace = '<leader>msr',   -- Replace surrounding
+          update_n_lines = '',       -- Update `n_lines`
+
+          suffix_last = '',          -- Suffix to search with "prev" method
+          suffix_next = '',          -- Suffix to search with "next" method
+        }
+      }
     end
   },
   {
@@ -290,14 +331,9 @@ require('lazy').setup({
   },
   { 'echasnovski/mini.jump2d', version = '*' },
   {
-    'echasnovski/mini.pick',
-    version = '*',
-    dependencies = {
-      'echasnovski/mini.extra'
-    },
+    'ggandor/leap.nvim',
     config = function()
-      require('mini.pick').setup()
-      require('mini.extra').setup()
+      require('leap').create_default_mappings()
     end
   },
   {
@@ -326,6 +362,17 @@ require('lazy').setup({
     dependencies = {
       "nvim-lua/plenary.nvim",
     }
+  },
+  {
+    '0xJohnnyboy/scretch.nvim',
+    dependencies = { 'ibhagwan/fzf-lua' },
+    config = function()
+      require('scretch').setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
   },
   { import = 'plugins' },
 }, {})

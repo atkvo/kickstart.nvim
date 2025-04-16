@@ -60,16 +60,19 @@ require('plugins/config/treesitter-setup')
 require('plugins/config/toggleterm-setup')
 
 -- document existing key chains
-require('which-key').register {
-  ['<leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = 'Toggle', _ = 'which_key_ignore' },
-  ['<leader>l'] = { name = 'LSP', _ = 'which_key_ignore' },
-  ['<leader>v'] = { name = 'Version Control', _ = 'which_key_ignore' },
-  ['<leader>S'] = { name = 'Session', _ = 'which_key_ignore' },
+require('which-key').add {
+    { "<leader>S", group = "Session" },
+    { "<leader>T", group = "Tab" },
+    { "<leader>l", group = "LSP" },
+    { "<leader>s", group = "Search" },
+    { "<leader>t", group = "Toggle" },
+    { "<leader>v", group = "Version Control" },
+    { "<leader>m", group = "Match" },
 }
+
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
-require('which-key').register({
+require('which-key').add({
   ['<leader>'] = { name = 'VISUAL <leader>' },
   ['<leader>h'] = { 'Git [H]unk' },
 }, { mode = 'v' })
@@ -126,5 +129,6 @@ cmp.setup {
   },
 }
 
+require('oil').setup()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

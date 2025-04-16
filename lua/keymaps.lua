@@ -8,6 +8,9 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true })
 vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true })
 
+-- vim.keymap.set('n', '<C-j>', ':cnext<cr>', { silent = true })
+-- vim.keymap.set('n', '<C-k>', ':cprev<cr>', { silent = true })
+
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -53,4 +56,5 @@ vim.keymap.set('n', '<leader>ld', require('goto-preview').goto_preview_definitio
 vim.keymap.set('n', '<leader>lr', require('goto-preview').goto_preview_references, { desc = 'Preview references' })
 
 local fuzzy_keymaps = require('keymaps-fuzzy-picker')
-fuzzy_keymaps.configure_picker(fuzzy_keymaps.supported_pickers.fzflua)
+fuzzy_keymaps.configure_picker(fuzzy_keymaps.supported_pickers.snacks)
+-- fuzzy_keymaps.configure_picker(fuzzy_keymaps.supported_pickers.telescope)

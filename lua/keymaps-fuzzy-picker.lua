@@ -3,7 +3,9 @@ local mod = { }
 mod.supported_pickers = {
   telescope = '0',
   fzflua = '1',
+  snacks = '2',
 }
+
 function mod.configure_picker(picker)
   if picker == mod.supported_pickers.telescope then
     -- Telescope keybinds
@@ -68,6 +70,26 @@ function mod.configure_picker(picker)
     vim.keymap.set('n', 'gd', require('fzf-lua').lsp_definitions, { desc = 'Goto definition' })
     vim.keymap.set('n', 'gr', require('fzf-lua').lsp_references, { desc = 'Goto references' })
     vim.keymap.set('n', 'gI', require('fzf-lua').lsp_implementations, { desc = 'Goto implementation' })
+    vim.keymap.set('n', 'gw', require('mini.jump2d').start, { desc = 'Goto spot' })
+  elseif picker == mod.supported_pickers.snacks then
+    vim.keymap.set('n', '<leader>s?', Snacks.picker.pickers, { desc = 'Search select telescope' })
+    vim.keymap.set('n', '<leader>sf', Snacks.picker.files, { desc = 'Search files' })
+    -- vim.keymap.set('n', '<leader>sh', Snacks.picker.help_tags, { desc = 'Search help' })
+    vim.keymap.set('n', '<leader>sw', Snacks.picker.grep_word, { desc = 'Search current word' })
+    vim.keymap.set('n', '<leader>sg', Snacks.picker.lines, { desc = 'Search by grep' })
+    -- vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = 'Search by grep on git root' })
+    vim.keymap.set('n', '<leader>sd', Snacks.picker.diagnostics_buffer, { desc = 'Search diagnostics' })
+    vim.keymap.set('n', '<leader>sD', Snacks.picker.diagnostics, { desc = 'Search workspace diagnostics' })
+    vim.keymap.set('n', '<leader>s\'', Snacks.picker.resume, { desc = 'Search resume' })
+    vim.keymap.set('n', '<leader>sb', Snacks.picker.buffers, { desc = 'Find existing buffers' })
+    vim.keymap.set('n', '<leader>ss', Snacks.picker.lsp_symbols, { desc = 'Search symbols' })
+    vim.keymap.set('n', '<leader>sS', Snacks.picker.lsp_workspace_symbols, { desc = 'Search workspace symbols' })
+    vim.keymap.set('n', '<leader>sj', Snacks.picker.jumps, { desc = 'Search jumplists' })
+
+    vim.keymap.set('n', '<leader>gd', Snacks.picker.lsp_definitions, { desc = 'Go to definitioG' })
+    vim.keymap.set('n', '<leader>gr', Snacks.picker.lsp_references, { desc = 'Go to references' })
+    vim.keymap.set('n', '<leader>gi', Snacks.picker.lsp_implementations, { desc = 'Go to implementation' })
+
     vim.keymap.set('n', 'gw', require('mini.jump2d').start, { desc = 'Goto spot' })
   end
 end
