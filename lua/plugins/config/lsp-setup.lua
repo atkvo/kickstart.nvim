@@ -45,20 +45,32 @@ end
 
 -- Setup neovim lua configuration
 require('neodev').setup()
+local cwd = vim.fn.getcwd()
+local project_lsp_config_filename = "project_lspconfig.lua"
+local project_lsp_config_path = vim.fn.fnamemodify(cwd.. "/" .. project_lsp_config_filename, ":p")
 
-local lspconfig = require('lspconfig')
-lspconfig.ccls.setup {
-  init_options = {
-    cache = {
-      directory = ".ccls-cache";
-    };
-  }
-}
+print(project_lsp_config_path)
 
-lspconfig.rust_analyzer.setup {}
-lspconfig.pyright.setup {}
-lspconfig.lua_ls.setup {}
-lspconfig.zls.setup {}
+
+if vim.fn.filereadable(project_lsp_config_path) == 1 then
+  -- local project_lsp_config_path = project_lsp_config_path 
+  require('project_lspconfig')
+else
+  local lspconfig = require('lspconfig')
+  lspconfig.clangd.setup {}
+  -- lspconfig.ccls.setup {
+  --   init_options = {
+  --     cache = {
+  --       directory = ".ccls-cache";
+  --     };
+  --   }
+  -- }
+
+  lspconfig.rust_analyzer.setup {}
+  lspconfig.pyright.setup {}
+  lspconfig.lua_ls.setup {}
+  lspconfig.zls.setup {}
+end
 
 -- vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto definition' })
