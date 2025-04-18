@@ -42,7 +42,6 @@ function mod.configure_picker(picker)
     vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = 'Goto definition' })
     vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = 'Goto references' })
     vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, { desc = 'Goto implementation' })
-    vim.keymap.set('n', 'gw', require('mini.jump2d').start, { desc = 'Goto spot' })
 
     vim.keymap.set('n', '<leader>u', require('telescope').extensions.undo.undo, { desc = 'Undo tree' })
 
@@ -70,7 +69,6 @@ function mod.configure_picker(picker)
     vim.keymap.set('n', 'gd', require('fzf-lua').lsp_definitions, { desc = 'Goto definition' })
     vim.keymap.set('n', 'gr', require('fzf-lua').lsp_references, { desc = 'Goto references' })
     vim.keymap.set('n', 'gI', require('fzf-lua').lsp_implementations, { desc = 'Goto implementation' })
-    vim.keymap.set('n', 'gw', require('mini.jump2d').start, { desc = 'Goto spot' })
   elseif picker == mod.supported_pickers.snacks then
     vim.keymap.set('n', '<leader>s?', Snacks.picker.pickers, { desc = 'Search picker' })
     vim.keymap.set('n', '<leader>sf', Snacks.picker.files, { desc = 'Search files' })
@@ -92,7 +90,6 @@ function mod.configure_picker(picker)
     vim.keymap.set('n', '<leader>gr', Snacks.picker.lsp_references, { desc = 'Go to references' })
     vim.keymap.set('n', '<leader>gi', Snacks.picker.lsp_implementations, { desc = 'Go to implementation' })
 
-    vim.keymap.set('n', 'gw', require('mini.jump2d').start, { desc = 'Goto spot' })
   end
 end
 

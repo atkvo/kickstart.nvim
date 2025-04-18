@@ -445,7 +445,6 @@ require('lazy').setup({
       require('tabby.tabline').use_preset('tab_only')
     end
   },
-  { 'echasnovski/mini.jump2d', version = '*' },
   {
     'ggandor/leap.nvim',
     config = function()
