@@ -234,6 +234,10 @@ require('lazy').setup({
         component_separators = '|',
         section_separators = '',
       },
+      sections = {
+        lualine_b = { 'branch', 'diagnostics', 'lsp_status' },
+        lualine_c = { { 'filename', path = 1 } },
+      }
     },
   },
   -- Fuzzy Finder (files, lsp, etc)
