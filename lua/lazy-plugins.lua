@@ -56,11 +56,14 @@ require('lazy').setup({
       },
       input = { enabled = true },
       picker = { enabled = true },
+      profiler = { enabled = false },
       notifier = { enabled = true },
       quickfile = { enabled = true },
       scope = { enabled = true },
+      scratch = { enabled = true },
       scroll = { enabled = false },
       statuscolumn = { enabled = true },
+      terminal = { enabled = false },
       words = { enabled = true },
     },
   },
@@ -429,7 +432,8 @@ require('lazy').setup({
       "nvim-telescope/telescope.nvim", -- optional
       "ibhagwan/fzf-lua",              -- optional
     },
-    config = true
+    config = true,
+    lazy = true
   },
   {
     "FabijanZulj/blame.nvim",
@@ -452,13 +456,6 @@ require('lazy').setup({
     end
   },
   {
-    'echasnovski/mini.cursorword',
-    version = '*',
-    config = function()
-      require('mini.cursorword').setup()
-    end
-  },
-  {
     'MagicDuck/grug-far.nvim',
     config = function()
       require('grug-far').setup();
@@ -477,17 +474,6 @@ require('lazy').setup({
     dependencies = {
       "nvim-lua/plenary.nvim",
     }
-  },
-  {
-    '0xJohnnyboy/scretch.nvim',
-    dependencies = { 'ibhagwan/fzf-lua' },
-    config = function()
-      require('scretch').setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end
   },
   { import = 'plugins' },
 }, {})

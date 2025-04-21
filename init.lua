@@ -56,7 +56,6 @@ require('plugins/config/goto-preview-setup')
 require('plugins/config/neo-tree-setup')
 require('plugins/config/telescope-setup')
 require('plugins/config/treesitter-setup')
-require('plugins/config/toggleterm-setup')
 
 -- document existing key chains
 require('which-key').add {
