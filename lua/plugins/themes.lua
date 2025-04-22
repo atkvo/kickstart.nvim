@@ -1,11 +1,13 @@
 return {
   -- themes
-  { 'catppuccin/nvim',            name = 'catppuccin', priority = 1000 },
+  { 'catppuccin/nvim',                 name = 'catppuccin', priority = 1000 },
   { 'rebelot/kanagawa.nvim' },
-  { 'bluz71/vim-nightfly-colors', name = 'nightfly',   lazy = false,   priority = 1000 },
-  { 'bluz71/vim-moonfly-colors',  name = 'moonfly',    lazy = false,   priority = 1000 },
-  { 'sainnhe/everforest',         lazy = false,        priority = 1000 },
+  { 'bluz71/vim-nightfly-colors',      name = 'nightfly',   lazy = false,   priority = 1000 },
+  { 'bluz71/vim-moonfly-colors',       name = 'moonfly',    lazy = false,   priority = 1000 },
+  { 'sainnhe/everforest',              lazy = false,        priority = 1000 },
   { 'shaunsingh/moonlight.nvim' },
+  { "EdenEast/nightfox.nvim" },
+  { "nyoom-engineering/oxocarbon.nvim" },
   {
     'mcchrish/zenbones.nvim',
     dependencies = { 'rktjmp/lush.nvim' }
@@ -53,4 +55,6 @@ return {
       });
     end
   },
+  { 'pineapplegiant/spaceduck' },
+  { 'Shatur/neovim-ayu' }
 }
