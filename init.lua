@@ -83,3 +83,16 @@ require('which-key').add({
 require('oil').setup()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+
+-- autocmd
+vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' }, {
+  callback = function(ev)
+    local recording_register = vim.fn.reg_recording()
+    if ev.event == 'RecordingEnter' then
+      vim.notify('Recording @' .. recording_register .. ' start')
+    else
+      vim.notify('Recording @' .. recording_register .. ' done')
+    end
+  end
+})
