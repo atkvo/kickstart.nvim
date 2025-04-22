@@ -8,8 +8,14 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true })
 vim.keymap.set('n', '<C-h>', '<C-w>h', { silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true })
 
--- vim.keymap.set('n', '<C-j>', ':cnext<cr>', { silent = true })
--- vim.keymap.set('n', '<C-k>', ':cprev<cr>', { silent = true })
+vim.keymap.set('n', '<leader>tn', ':tabnext<cr>', { silent = true, desc = 'Next tab' })
+vim.keymap.set('n', '<leader>tp', ':tabprevious<cr>', { silent = true, desc = 'Previous tab' })
+vim.keymap.set('n', '<leader>tl', ':Tabby pick_window<cr>', { silent = true, desc = 'Tab list' })
+vim.keymap.set('n', '<leader>tc', ':tabclose<cr>', { silent = true, desc = 'Close'})
+vim.keymap.set('n', '<leader>tN', ':tabnew<cr>', { silent = true, desc = 'New tab' })
+
+vim.keymap.set('n', '<leader>tmn', ':+tabmove<cr>', { silent = true, desc = 'Move tab next position' })
+vim.keymap.set('n', '<leader>tmp', ':-tabmove<cr>', { silent = true, desc = 'Move tab previous position'})
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -22,7 +28,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- Terminal keymaps
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
-vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm<CR>', { desc = 'Toggle terminal' })
+vim.keymap.set('n', '<leader>Tt', '<cmd>ToggleTerm<CR>', { desc = 'Toggle terminal' })
 
 
 -- [[ Highlight on yank ]]
@@ -40,20 +46,22 @@ local function toggle_list_char()
   vim.o.list = not vim.o.list
 end
 
-vim.keymap.set('n', '<leader>tl', toggle_list_char, { desc = 'Toggle list char' })
-vim.keymap.set('n', '<leader>to', '<cmd>Outline<CR>', { desc = 'Toggle outline' })
+vim.keymap.set('n', '<leader>Tl', toggle_list_char, { desc = 'Toggle list char' })
+vim.keymap.set('n', '<leader>To', '<cmd>Outline<CR>', { desc = 'Toggle outline' })
 
 vim.keymap.set('n', '<leader>lR', vim.lsp.buf.rename, { desc = 'Rename' })
 vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'Code action' })
-
-vim.keymap.set('n', '<leader>Su', ':PosessionSave<cr>', { desc = 'Session update' })
-vim.keymap.set('n', '<leader>Sd', require('possession').delete, { desc = 'Session delete' })
+vim.keymap.set('n', '<leader>lF', vim.lsp.buf.format, { desc = 'Format' })
 
 -- See `:help K` for why this keymap
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover documentation' })
 -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature documentation' })
 vim.keymap.set('n', '<leader>ld', require('goto-preview').goto_preview_definition, { desc = 'Preview definitions' })
 vim.keymap.set('n', '<leader>lr', require('goto-preview').goto_preview_references, { desc = 'Preview references' })
+
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto definition' })
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Goto references' })
+vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, { desc = 'Goto implementation' })
 
 local fuzzy_keymaps = require('keymaps-fuzzy-picker')
 fuzzy_keymaps.configure_picker(fuzzy_keymaps.supported_pickers.snacks)

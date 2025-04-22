@@ -77,16 +77,16 @@ require('lazy').setup({
         local set = vim.keymap.set
 
         -- Add or skip cursor above/below the main cursor.
-        set({"n", "x"}, "<up>", function() mc.lineAddCursor(-1) end)
-        set({"n", "x"}, "<down>", function() mc.lineAddCursor(1) end)
-        set({"n", "x"}, "<leader><up>", function() mc.lineSkipCursor(-1) end)
-        set({"n", "x"}, "<leader><down>", function() mc.lineSkipCursor(1) end)
+        set({"n", "x"}, "<up>", function() mc.lineAddCursor(-1) end, { desc = "Add cursor up" })
+        set({"n", "x"}, "<down>", function() mc.lineAddCursor(1) end, { desc = "Add cursor down" })
+        set({"n", "x"}, "<leader><up>", function() mc.lineSkipCursor(-1) end, { desc = "Skip cursor up" })
+        set({"n", "x"}, "<leader><down>", function() mc.lineSkipCursor(1) end, { desc = "Skip cursor down" })
 
         -- Add or skip adding a new cursor by matching word/selection
-        set({"n", "x"}, "<leader>n", function() mc.matchAddCursor(1) end)
-        set({"n", "x"}, "<leader>s", function() mc.matchSkipCursor(1) end)
-        set({"n", "x"}, "<leader>N", function() mc.matchAddCursor(-1) end)
-        set({"n", "x"}, "<leader>S", function() mc.matchSkipCursor(-1) end)
+        -- set({"n", "x"}, "<leader>n", function() mc.matchAddCursor(1) end, { desc = "Add match cursor down" })
+        -- set({"n", "x"}, "<leader>N", function() mc.matchAddCursor(-1) end, { desc = "Add match cursor up" })
+        -- set({"n", "x"}, "<leader>s", function() mc.matchSkipCursor(1) end, { desc = "Skip match cursor down" })
+        -- set({"n", "x"}, "<leader>S", function() mc.matchSkipCursor(-1) end, { desc = "Skip match cursor up" })
 
         -- Add and remove cursors with control + left click.
         set("n", "<c-leftmouse>", mc.handleMouse)
@@ -95,6 +95,9 @@ require('lazy').setup({
 
         -- Disable and enable cursors.
         set({"n", "x"}, "<c-q>", mc.toggleCursor)
+
+        -- match new cursors within visual selections by regex.
+        set("x", "M", mc.matchCursors)
 
         -- Mappings defined in a keymap layer only apply when there are
         -- multiple cursors. This lets you have overlapping mappings.
@@ -257,10 +260,10 @@ require('lazy').setup({
         -- visual mode
         map('v', '<leader>vs', function()
           gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = 'stage git hunk' })
-        map('v', '<leader>hr', function()
+        end, { desc = 'Stage git hunk' })
+        map('v', '<leader>vr', function()
           gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = 'reset git hunk' })
+        end, { desc = 'Reset git hunk' })
         -- normal mode
         map('n', '<leader>vs', gs.stage_hunk, { desc = 'Git stage hunk' })
         map('n', '<leader>vr', gs.reset_hunk, { desc = 'Git reset hunk' })
@@ -277,8 +280,8 @@ require('lazy').setup({
         end, { desc = 'Uit diff against last commit' })
 
         -- Toggles
-        map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = 'Toggle git blame line' })
-        map('n', '<leader>td', gs.toggle_deleted, { desc = 'Toggle git show deleted' })
+        map('n', '<leader>Tb', gs.toggle_current_line_blame, { desc = 'Toggle git blame line' })
+        map('n', '<leader>Td', gs.toggle_deleted, { desc = 'Toggle git show deleted' })
 
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'Select git hunk' })
@@ -344,6 +347,13 @@ require('lazy').setup({
   },
   {
     'rmagatti/goto-preview',
+    config = function()
+      require('goto-preview').setup({
+      references = {
+        provider = 'snacks',
+      }
+    })
+    end
   },
   {
     'kenn7/vim-arsync',
@@ -383,25 +393,25 @@ require('lazy').setup({
       possession.setup({ autoload = true })
 
       vim.keymap.set(
-        'n', '<leader>Sl',
+        'n', '<leader>]l',
         possession.list,
         { desc = 'List sessions' }
       )
 
       vim.keymap.set(
-        'n', '<leader>Sn',
+        'n', '<leader>]n',
         possession.new,
         { desc = 'New sessions' }
       )
 
       vim.keymap.set(
-        'n', '<leader>Su',
+        'n', '<leader>]u',
         possession.update,
         { desc = 'Update session' }
       )
 
       vim.keymap.set(
-        'n', '<leader>Sd',
+        'n', '<leader>]d',
         possession.delete,
         {
           desc = 'Delete session'
@@ -433,7 +443,6 @@ require('lazy').setup({
       "ibhagwan/fzf-lua",              -- optional
     },
     config = true,
-    lazy = true
   },
   {
     "FabijanZulj/blame.nvim",
