@@ -328,18 +328,58 @@ require('lazy').setup({
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = true,
-        theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
-      },
-      sections = {
-        lualine_b = { 'branch', 'diagnostics', 'lsp_status' },
-        lualine_c = { { 'filename', path = 1 } },
-      }
-    },
+    config = function()
+      -- function from https://www.reddit.com/r/neovim/comments/xy0tu1/comment/irfegvd/
+      local function show_macro_recording()
+        local recording_register = vim.fn.reg_recording()
+        if recording_register == "" then
+          return ""
+        else
+          return "Recording @" .. recording_register
+        end
+      end
+
+      require('lualine').setup({
+        options = {
+          icons_enabled = true,
+          theme = 'auto',
+          component_separators = '',
+          section_separators = '',
+        },
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_b = { { 'macro', fmt = show_macro_recording }, 'branch', 'diagnostics', 'lsp_status' },
+          lualine_c = { { 'filename', path = 1 } },
+          lualine_x = { 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
+        },
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = { { 'filename', path = 1 } },
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {}
+        },
+        -- winbar = {
+        --   lualine_a = {},
+        --   lualine_b = {},
+        --   lualine_c = { 'filename' },
+        --   lualine_x = {},
+        --   lualine_y = {},
+        --   lualine_z = {}
+        -- },
+        -- inactive_winbar = {
+        --   lualine_a = {},
+        --   lualine_b = {},
+        --   lualine_c = { 'filename' },
+        --   lualine_x = {},
+        --   lualine_y = {},
+        --   lualine_z = {}
+        -- },
+      })
+    end
   },
   -- Fuzzy Finder (files, lsp, etc)
   {
