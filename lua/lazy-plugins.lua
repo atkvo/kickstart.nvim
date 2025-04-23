@@ -105,6 +105,45 @@ require('lazy').setup({
 
   },
   {
+    "folke/trouble.nvim",
+    opts = {
+      auto_refresh = false,
+    },
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>TX",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>Tx",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>Ts",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>Tr",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>TL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>TQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
+  },
+  {
     "jake-stewart/multicursor.nvim",
     branch = "1.0",
     config = function()
@@ -422,16 +461,6 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
-  },
-  {
-    'hedyhli/outline.nvim',
-    config = function()
-      -- Example mapping to toggle outline
-
-      require('outline').setup {
-        -- Your setup opts here (leave empty to use defaults)
-      }
-    end,
   },
   {
     'rmagatti/goto-preview',

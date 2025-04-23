@@ -47,8 +47,6 @@ local function toggle_list_char()
 end
 
 vim.keymap.set('n', '<leader>Tl', toggle_list_char, { desc = 'Toggle list char' })
-vim.keymap.set('n', '<leader>To', '<cmd>Outline<CR>', { desc = 'Toggle outline' })
-
 vim.keymap.set('n', '<leader>lR', vim.lsp.buf.rename, { desc = 'Rename' })
 vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { desc = 'Code action' })
 vim.keymap.set('n', '<leader>lF', vim.lsp.buf.format, { desc = 'Format' })
