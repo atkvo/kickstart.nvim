@@ -58,3 +58,5 @@ vim.cmd.colorscheme('rose-pine')
 vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
 -- vim.o.showtabline = 2
 vim.lsp.set_log_level("off")
+
+vim.diagnostic.config({ virtual_text = true })
