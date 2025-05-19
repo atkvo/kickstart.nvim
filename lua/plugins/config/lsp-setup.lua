@@ -23,7 +23,15 @@ else
   lspconfig.rust_analyzer.setup {}
   lspconfig.pyright.setup {}
   lspconfig.lua_ls.setup {}
-  lspconfig.zls.setup {}
+  lspconfig.zls.setup {
+    settings = {
+      zls = {
+        enable_build_on_save = true,
+        build_on_save_step = "check",
+      }
+    }
+  }
+
 end
 
 
