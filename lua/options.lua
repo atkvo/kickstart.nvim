@@ -53,7 +53,8 @@ vim.o.tabstop = 4
 
 -- vim.cmd.colorscheme('catppuccin-mocha')
 -- vim.cmd.colorscheme('fluoromachine')
-vim.cmd.colorscheme('rose-pine')
+-- vim.cmd.colorscheme('rose-pine')
+vim.cmd.colorscheme('kanso')
 
 vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
 -- vim.o.showtabline = 2

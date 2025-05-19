@@ -56,5 +56,10 @@ return {
     end
   },
   { 'pineapplegiant/spaceduck' },
-  { 'Shatur/neovim-ayu' }
+  { 'Shatur/neovim-ayu' },
+  {
+    "webhooked/kanso.nvim",
+    lazy = false,
+    priority = 1000,
+  }
 }
