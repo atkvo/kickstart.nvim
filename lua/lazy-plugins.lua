@@ -611,5 +611,30 @@ require('lazy').setup({
       "nvim-lua/plenary.nvim",
     }
   },
+  {
+    's1n7ax/nvim-window-picker',
+    name = 'window-picker',
+    event = 'VeryLazy',
+    version = '2.*',
+    config = function()
+      local wp = require('window-picker')
+
+      -- Ensure window-picker is correctly initialized
+      wp.setup({
+        hint = 'floating-big-letter'
+      })
+
+      -- Function to select a window
+      local select_window = function()
+        local win_id = wp.pick_window()
+        if win_id then
+          vim.api.nvim_set_current_win(win_id)
+        end
+      end
+
+      -- Keymap to trigger window picking
+      vim.keymap.set('n', '<leader>W', select_window, { desc = 'Pick window' })
+    end,
+  },
   { import = 'plugins' },
 }, {})
