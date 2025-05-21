@@ -11,6 +11,8 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true })
 vim.keymap.set('n', '<leader>tn', ':tabnext<cr>', { silent = true, desc = 'Next tab' })
 vim.keymap.set('n', '<leader>tp', ':tabprevious<cr>', { silent = true, desc = 'Previous tab' })
 vim.keymap.set('n', '<leader>tl', ':Tabby pick_window<cr>', { silent = true, desc = 'Tab list' })
+vim.keymap.set('n', '<leader>tj', ':Tabby jump_to_tab<cr>', { silent = true, desc = 'Tab jump' })
+vim.keymap.set('n', '<leader>tr', ':Tabby rename_tab<cr>', { silent = true, desc = 'Tab rename' })
 vim.keymap.set('n', '<leader>tc', ':tabclose<cr>', { silent = true, desc = 'Close'})
 vim.keymap.set('n', '<leader>tN', ':tabnew<cr>', { silent = true, desc = 'New tab' })
 
