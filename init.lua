@@ -54,7 +54,6 @@ require('keymaps')
 require('plugins/config/lsp-setup')
 require('plugins/config/goto-preview-setup')
 require('plugins/config/neo-tree-setup')
-require('plugins/config/telescope-setup')
 require('plugins/config/treesitter-setup')
 
 -- document existing key chains
@@ -96,3 +95,5 @@ vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' }, {
     end
   end
 })
+
+vim.api.nvim_create_user_command('Bd', 'lua Snacks.bufdelete()', {})
