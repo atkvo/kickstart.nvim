@@ -52,7 +52,6 @@ require('options')
 require('keymaps')
 
 require('plugins/config/lsp-setup')
-require('plugins/config/goto-preview-setup')
 require('plugins/config/neo-tree-setup')
 require('plugins/config/treesitter-setup')
 
@@ -80,9 +79,6 @@ require('which-key').add({
 }, { mode = 'v' })
 
 require('oil').setup()
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
-
 
 -- autocmd
 vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' }, {

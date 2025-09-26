@@ -454,16 +454,6 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
   {
-    'rmagatti/goto-preview',
-    config = function()
-      require('goto-preview').setup({
-        references = {
-          provider = 'snacks',
-        }
-      })
-    end
-  },
-  {
     'kenn7/vim-arsync',
     dependencies = {
       'prabirshrestha/async.vim',

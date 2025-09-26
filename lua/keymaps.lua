@@ -55,9 +55,7 @@ vim.keymap.set('n', '<leader>lF', vim.lsp.buf.format, { desc = 'Format' })
 
 -- See `:help K` for why this keymap
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover documentation' })
--- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature documentation' })
-vim.keymap.set('n', '<leader>ld', require('goto-preview').goto_preview_definition, { desc = 'Preview definitions' })
-vim.keymap.set('n', '<leader>lr', require('goto-preview').goto_preview_references, { desc = 'Preview references' })
+-- vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, { desc = 'Signature documentation' })
 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto definition' })
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Goto references' })
