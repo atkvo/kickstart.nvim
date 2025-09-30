@@ -55,30 +55,6 @@ require('plugins/config/lsp-setup')
 require('plugins/config/neo-tree-setup')
 require('plugins/config/treesitter-setup')
 
-
--- document existing key chains
--- require('which-key').add {
---   { "<leader>]",      group = "Session" },
---   { "<leader>t",      group = "Tab" },
---   { "<leader>l",      group = "LSP" },
---   { "<leader>p",      group = "Picker" },
---   { "<leader>T",      group = "Toggle" },
---   { "<leader>v",      group = "Version Control" },
---   { "<leader>m",      group = "Match" },
---   { "<leader>g",      group = "Go" },
---
---   -- Hide simple multicursor keybinds
---   { "<leader><Up>",   hidden = true },
---   { "<leader><Down>", hidden = true },
--- }
---
--- -- register which-key VISUAL mode
--- -- required for visual <leader>hs (hunk stage) to work
--- require('which-key').add({
---   { "<leader>v", group = "Version Control" },
---   { "<leader>m", group = "Match" },
--- }, { mode = 'v' })
-
 require('oil').setup()
 
 -- autocmd

@@ -8,7 +8,6 @@ require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
   -- Git related plugins
   'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -286,8 +285,6 @@ require('lazy').setup({
     opts_extend = { "sources.default" },
     ghost_text = true
   },
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
@@ -500,12 +497,19 @@ require('lazy').setup({
           miniclue.gen_clues.builtin_completion(),
           miniclue.gen_clues.g(),
           miniclue.gen_clues.marks(),
-          miniclue.gen_clues.registers(),
+          miniclue.gen_clues.registers({
+            show_contents = false
+          }),
           miniclue.gen_clues.windows(),
           miniclue.gen_clues.z(),
-          { mode = 'n', keys = '<leader>p', desc = 'Pickers' },
-          { mode = 'n', keys = '<leader>l', desc = 'LSP' },
-          { mode = 'n', keys = '<leader>s', desc = 'Surround' },
+          { mode = 'n', keys = '<leader>p',  desc = 'Pickers' },
+          { mode = 'n', keys = '<leader>l',  desc = 'LSP' },
+          { mode = 'n', keys = '<leader>s',  desc = 'Surround' },
+          { mode = 'n', keys = '<leader>T',  desc = 'Toggle' },
+          { mode = 'n', keys = '<leader>t',  desc = 'Tab' },
+          { mode = 'n', keys = '<leader>tm', desc = 'Move' },
+          { mode = 'n', keys = '<leader>v',  desc = 'Version Control' },
+          { mode = 'n', keys = '<leader>]',  desc = 'Session' },
         },
         window = {
           config = {
