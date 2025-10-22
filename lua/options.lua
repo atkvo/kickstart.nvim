@@ -51,10 +51,23 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 
--- vim.cmd.colorscheme('catppuccin-mocha')
--- vim.cmd.colorscheme('fluoromachine')
--- vim.cmd.colorscheme('rose-pine')
-vim.cmd.colorscheme('kanso')
+local colorscheme_dark = 'rosebones'
+local colorscheme_light = 'rosebones'
+local colorscheme_default = colorscheme_dark
+vim.cmd.colorscheme(colorscheme_default)
+
+vim.api.nvim_create_user_command('Tb',
+  function(opts)
+    if vim.o.background == "dark" then
+      vim.o.background = "light"
+      vim.cmd.colorscheme(colorscheme_light)
+    else
+      vim.o.background = "dark"
+      vim.cmd.colorscheme(colorscheme_dark)
+    end
+  end,
+  { nargs = 0 }
+)
 
 vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
 -- vim.o.showtabline = 2
