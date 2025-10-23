@@ -355,6 +355,7 @@ require('lazy').setup({
         map('n', '<leader>vu', gs.undo_stage_hunk, { desc = 'Undo stage hunk' })
         map('n', '<leader>vR', gs.reset_buffer, { desc = 'Git Reset buffer' })
         map('n', '<leader>vp', gs.preview_hunk, { desc = 'Preview git hunk' })
+        map('n', '<leader>vB', gs.blame, { desc = 'Git blame gutter' })
         map('n', '<leader>vb', function()
           gs.blame_line { full = false }
         end, { desc = 'Git blame line' })
@@ -432,9 +433,7 @@ require('lazy').setup({
   {
     "otavioschwanck/arrow.nvim",
     dependencies = {
-      { "nvim-tree/nvim-web-devicons" },
-      -- or if using `mini.icons`
-      -- { "echasnovski/mini.icons" },
+      { "echasnovski/mini.icons" },
     },
     opts = {
       show_icons = true,
@@ -490,6 +489,8 @@ require('lazy').setup({
           -- `z` key
           { mode = 'n', keys = 'z' },
           { mode = 'x', keys = 'z' },
+          { mode = 'n', keys = '[' },
+          { mode = 'n', keys = ']' },
         },
 
         clues = {
